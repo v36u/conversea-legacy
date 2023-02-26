@@ -11,11 +11,12 @@
     "prisma-studio": "prisma studio",
     "postinstall": "pnpm prisma-generate",
     "lint": "eslint --ext \".js,.ts,.tsx\" --report-unused-disable-directives --report-unused-disable-directives .",
-    "predev": "",
-    "dev": "cross-env NODE_ENV=development run-s dev:* --print-label",
+    "predev": "cross-env NODE_ENV=development node ./scripts/predev.mjs",
+    "dev": "cross-env NODE_ENV=development run-s predev dev:* --print-label",
     "dev:prisma": "run-s prisma-migrate prisma-generate prisma-seed",
     "dev:next": "next dev",
-    "build": "cross-env NODE_ENV=production run-s build:* --print-label",
+    "prebuild": "cross-env NODE_ENV=production node ./scripts/prebuild.mjs",
+    "build": "cross-env NODE_ENV=production run-s prebuild build:* --print-label",
     "build:prisma": "run-s generate-postgres prisma-migrate",
     "build:next": "next build",
     "start": "next start",
@@ -40,7 +41,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "superjson": "^1.7.4",
-    "zod": "^3.0.0"
+    "zod": "^3.20.6"
   },
   "devDependencies": {
     "@playwright/test": "^1.26.1",
