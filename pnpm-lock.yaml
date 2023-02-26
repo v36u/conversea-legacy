@@ -8,7 +8,6 @@ specifiers:
   '@trpc/next': ^10.12.0
   '@trpc/react-query': ^10.12.0
   '@trpc/server': ^10.12.0
-  '@types/dotenv-flow': ^3.2.0
   '@types/next': ^9.0.0
   '@types/node': ^18.7.20
   '@types/react': ^18.0.9
@@ -17,7 +16,6 @@ specifiers:
   clsx: ^1.1.1
   cross-env: ^7.0.3
   dotenv-expand: ^10.0.0
-  dotenv-flow: ^3.2.0
   dotenv-flow-cli: ^1.0.0
   eslint: ^8.30.0
   eslint-config-next: ^13.1.0
@@ -55,7 +53,6 @@ dependencies:
 
 devDependencies:
   '@playwright/test': 1.30.0
-  '@types/dotenv-flow': 3.2.0
   '@types/next': 9.0.0_biqbaboplfbrettd7655fr4n2y
   '@types/node': 18.14.0
   '@types/react': 18.0.28
@@ -63,7 +60,6 @@ devDependencies:
   '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
   cross-env: 7.0.3
   dotenv-expand: 10.0.0
-  dotenv-flow: 3.2.0
   dotenv-flow-cli: 1.0.0
   eslint: 8.34.0
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
@@ -838,10 +834,6 @@ packages:
 
   /@types/chai/4.3.4:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
-    dev: true
-
-  /@types/dotenv-flow/3.2.0:
-    resolution: {integrity: sha512-A79hbPwocbYkcTwGcDOFbKDuqyVo5mLAz/6Iq465YZ7R7Go5bT1PIM8I2jlPQkaD9u9fbotGVLkUPhX+9XUHfw==}
     dev: true
 
   /@types/json-schema/7.0.11:

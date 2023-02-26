@@ -1,9 +1,17 @@
-import dotenvFlow from 'dotenv-flow';
 import dotenvExpand from 'dotenv-expand';
 import { z } from 'zod';
 
 export const configEnv = () => {
-  dotenvExpand.expand(dotenvFlow.config());
+  /**
+   * Because `dotenv-flow` is called as a command via the cli, it is no longer
+   * required to call `dotenvFlow.config()` because the vars have already been added.
+   * Now, we just need to expand them.
+   */
+  dotenvExpand.expand({
+    parsed: {
+      ...process.env,
+    },
+  });
 
   const envSchema = z.object({
     NODE_ENV: z.enum(['development', 'test', 'production']),
