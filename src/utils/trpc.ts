@@ -16,7 +16,7 @@ function getBaseUrl() {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  // // reference for render.com
+  // reference for render.com
   if (process.env.RENDER_INTERNAL_HOSTNAME) {
     return `http://${process.env.RENDER_INTERNAL_HOSTNAME}:${process.env.PORT}`;
   }
@@ -77,7 +77,7 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
               // This is so you can pass through things like cookies when we're server-side rendering
 
               // If you're using Node 18, omit the "connection" header
-              const { connection: _connection, ...headers } = ctx.req.headers;
+              const { connection: _connection, ...headers } = ctx.req;
               return {
                 ...headers,
                 // Optional: inform server that it's an SSR request

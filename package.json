@@ -1,6 +1,6 @@
 {
   "name": "conversea",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "prisma-generate": "prisma generate",
@@ -10,7 +10,7 @@
     "prisma-seed": "prisma db seed",
     "prisma-studio": "prisma studio",
     "postinstall": "pnpm prisma-generate",
-    "lint": "eslint --ext \".js,.ts,.tsx,.json\" --report-unused-disable-directives --report-unused-disable-directives .",
+    "lint": "eslint --ext \".js,.ts,.tsx\" --report-unused-disable-directives --report-unused-disable-directives .",
     "predev": "",
     "dev": "cross-env NODE_ENV=development run-s dev:* --print-label",
     "dev:prisma": "run-s prisma-migrate prisma-generate prisma-seed",
