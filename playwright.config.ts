@@ -1,7 +1,7 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const baseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000';
-console.log(`\u2139 Using base URL "${baseUrl}"`);
+console.info(`\u2139 Using base URL "${baseUrl}"`);
 
 const opts = {
   // launch headless on CI, in browser locally
