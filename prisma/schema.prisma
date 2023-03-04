@@ -20,4 +20,6 @@ model Post {
   // This is unique so it can be used for cursor-based pagination
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
+
+  @@map("Posts")
 }
