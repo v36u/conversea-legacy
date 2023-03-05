@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig, devices } from '@playwright/test';
+import { devices, PlaywrightTestConfig } from '@playwright/test';
 
 const baseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000';
 console.info(`\u2139 Using base URL "${baseUrl}"`);
@@ -8,6 +8,7 @@ const opts = {
   headless: !!process.env.CI || !!process.env.PLAYWRIGHT_HEADLESS,
   // collectCoverage: !!process.env.PLAYWRIGHT_HEADLESS
 };
+
 const config: PlaywrightTestConfig = {
   testDir: './playwright',
   timeout: 35e3,

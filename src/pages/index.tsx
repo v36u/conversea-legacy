@@ -1,13 +1,13 @@
-import { trpc } from '../utils/trpc';
-import { NextPageWithLayout } from './_app';
 import { inferProcedureInput } from '@trpc/server';
 import Link from 'next/link';
 import { Fragment } from 'react';
 import type { AppRouter } from '~/server/routers/_app';
+import { trpc } from '../utils/trpc';
+import { NextPageWithLayout } from './_app';
 
 const IndexPage: NextPageWithLayout = () => {
   const utils = trpc.useContext();
-  const postsQuery = trpc.post.list.useInfiniteQuery(
+  const postsQuery = trpc.posts.list.useInfiniteQuery(
     {
       limit: 5,
     },
@@ -18,10 +18,10 @@ const IndexPage: NextPageWithLayout = () => {
     },
   );
 
-  const addPost = trpc.post.add.useMutation({
+  const addPost = trpc.posts.add.useMutation({
     async onSuccess() {
       // refetches posts after a post is added
-      await utils.post.list.invalidate();
+      await utils.posts.list.invalidate();
     },
   });
 
@@ -90,8 +90,7 @@ const IndexPage: NextPageWithLayout = () => {
           e.preventDefault();
           const $form = e.currentTarget;
           const values = Object.fromEntries(new FormData($form));
-          type Input = inferProcedureInput<AppRouter['post']['add']>;
-          //    ^?
+          type Input = inferProcedureInput<AppRouter['posts']['add']>;
           const input: Input = {
             title: values.title as string,
             text: values.text as string,

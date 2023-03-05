@@ -28,7 +28,8 @@
     "**/*.js",
     "**/*.mjs",
     "scripts/prebuild.mjs",
-    "scripts/predev.mjs"
+    "scripts/predev.mjs",
+    ".prettierrc.js"
   ],
   "exclude": ["node_modules"]
 }

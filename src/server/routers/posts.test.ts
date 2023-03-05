@@ -1,10 +1,10 @@
 /**
  * Integration test example for the `post` router
  */
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
+import { inferProcedureInput } from '@trpc/server';
 import { createContextInner } from '../context';
 import { AppRouter, appRouter } from './_app';
-import { inferProcedureInput } from '@trpc/server';
 
 test('add and get post', async () => {
   const ctx = await createContextInner({});

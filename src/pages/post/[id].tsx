@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '~/pages/_app';
 import { RouterOutput, trpc } from '~/utils/trpc';
 
-type PostByIdOutput = RouterOutput['post']['byId'];
+type PostByIdOutput = RouterOutput['posts']['byId'];
 
 function PostItem(props: { post: PostByIdOutput }) {
   const { post } = props;
@@ -22,7 +22,7 @@ function PostItem(props: { post: PostByIdOutput }) {
 
 const PostViewPage: NextPageWithLayout = () => {
   const id = useRouter().query.id as string;
-  const postQuery = trpc.post.byId.useQuery({ id });
+  const postQuery = trpc.posts.byId.useQuery({ id });
 
   if (postQuery.error) {
     return (

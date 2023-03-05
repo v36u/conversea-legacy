@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import trpc from '@trpc/server';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
