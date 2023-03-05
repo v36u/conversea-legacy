@@ -11,7 +11,9 @@
     "prisma-studio": "prisma studio --browser none",
     "prisma-reset": "cross-env NODE_ENV=development dotenv-flow -- prisma migrate reset",
     "postinstall": "pnpm prisma-generate",
-    "lint": "eslint --ext \".js,.ts,.tsx\" --report-unused-disable-directives --report-unused-disable-directives .",
+    "lint": "cross-env NODE_ENV=development dotenv-flow -- run-p dev:pre lint:* --print-label",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint --ext \".js,.ts,.tsx\" --report-unused-disable-directives --report-unused-disable-directives --max-warnings 0 --cache .",
     "dev": "cross-env NODE_ENV=development dotenv-flow -- run-s dev:* --print-label",
     "dev:pre": "node ./scripts/predev.mjs",
     "dev:db": "run-s prisma-migrate-dev prisma-generate prisma-seed",
@@ -22,18 +24,13 @@
     "build:pre": "node ./scripts/prebuild.mjs",
     "build:db": "run-s prisma-generate prisma-migrate",
     "build:run": "next build",
-    "start": "next start",
-    "test": "cross-env NODE_ENV=test dotenv-flow -- run-s test:* --print-label",
-    "test:unit": "vitest run",
-    "test:e2e": "playwright test",
-    "test-dev": "start-server-and-test 'next dev' http://127.0.0.1:3000 test",
-    "test-start": "start-server-and-test start http://127.0.0.1:3000 test"
+    "start": "next start"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^4.10.1",
+    "@prisma/client": "^4.11.0",
     "@tanstack/react-query": "^4.24.10",
     "@trpc/client": "^10.13.2",
     "@trpc/next": "^10.13.2",
@@ -47,7 +44,6 @@
     "zod": "^3.20.6"
   },
   "devDependencies": {
-    "@playwright/test": "^1.26.1",
     "@types/next": "^9.0.0",
     "@types/node": "^18.7.20",
     "@types/react": "^18.0.9",
@@ -65,12 +61,9 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
     "prettier-plugin-organize-imports": "^3.2.2",
-    "prisma": "^4.10.1",
-    "start-server-and-test": "^2.0.0",
-    "tsx": "^3.9.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4",
-    "vitest": "^0.29.1"
+    "prisma": "^4.11.0",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5"
   },
   "publishConfig": {
     "access": "restricted"

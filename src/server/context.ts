@@ -1,4 +1,4 @@
-import trpc from '@trpc/server';
+import * as trpc from '@trpc/server';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CreateContextOptions {
