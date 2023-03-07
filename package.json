@@ -23,8 +23,9 @@
     "build": "cross-env NODE_ENV=production dotenv-flow -- run-s build:* --print-label",
     "build:pre": "node ./scripts/prebuild.mjs",
     "build:db": "run-s prisma-generate prisma-migrate",
-    "build:run": "next build",
-    "start": "next start"
+    "build:build": "next build",
+    "start": "next start",
+    "prod": "run-s build start"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
