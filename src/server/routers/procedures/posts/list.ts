@@ -1,3 +1,4 @@
+import invariant from 'tiny-invariant';
 import { z } from 'zod';
 import { prisma } from '~/server/prisma';
 import { publicProcedure } from '~/server/trpc';
@@ -34,12 +35,14 @@ export const postsList = publicProcedure
         createdAt: 'desc',
       },
     });
+
     let nextCursor: typeof cursor | undefined = undefined;
     if (items.length > limit) {
       // Remove the last item and use it as next cursor
 
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const nextItem = items.pop()!;
+      const nextItem = items.pop();
+      invariant(nextItem, 'Last item is undefined');
+
       nextCursor = nextItem.id;
     }
 
