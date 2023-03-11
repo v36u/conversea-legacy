@@ -31,6 +31,12 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^6.0.1",
+    "@mantine/form": "^6.0.1",
+    "@mantine/hooks": "^6.0.1",
+    "@mantine/next": "^6.0.1",
     "@prisma/client": "^4.11.0",
     "@tanstack/react-query": "^4.24.10",
     "@trpc/client": "^10.15.0",

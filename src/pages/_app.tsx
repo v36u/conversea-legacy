@@ -1,25 +1,32 @@
-import type { NextPage } from 'next';
+import { MantineProvider } from '@mantine/core';
 import type { AppProps, AppType } from 'next/app';
-import type { ReactElement, ReactNode } from 'react';
-import { DefaultLayout } from '~/client/components/DefaultLayout';
+import Head from 'next/head';
 import { trpc } from '~/utils/trpc';
 
-export type NextPageWithLayout<
-  TProps = Record<string, unknown>,
-  TInitialProps = TProps,
-> = NextPage<TProps, TInitialProps> & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
+const App = (({ pageProps, Component }: AppProps) => {
+  return (
+    <>
+      <Head>
+        <title>Conversea</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-};
-
-const MyApp = (({ Component, pageProps }: AppPropsWithLayout) => {
-  const getLayout =
-    Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>);
-
-  return getLayout(<Component {...pageProps} />);
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          /** Put your mantine theme override here */
+          colorScheme: 'light',
+        }}
+      >
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </MantineProvider>
+    </>
+  );
 }) as AppType;
 
-export default trpc.withTRPC(MyApp);
+const appWithTRPC = trpc.withTRPC(App);
+
+export default appWithTRPC;

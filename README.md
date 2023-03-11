@@ -8,7 +8,7 @@
 
 **Framework:** [Next.js](https://nextjs.org/)
 
-**Kit UI:** TBD
+**Kit UI:** [Mantine](https://mantine.dev/)
 
 **Bază de date:** [PostgreSQL](https://www.postgresql.org/)
 

@@ -1,12 +1,11 @@
 import { inferProcedureInput } from '@trpc/server';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
-import { Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import type { AppRouter } from '~/server/routers/_app';
 import { trpc } from '../utils/trpc';
-import { NextPageWithLayout } from './_app';
 
-const IndexPage: NextPageWithLayout = () => {
+const IndexPage: FC = () => {
   const utils = trpc.useContext();
   const postsQuery = trpc.posts.list.useInfiniteQuery(
     {
