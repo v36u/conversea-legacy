@@ -24,7 +24,7 @@
 - [ESLint](https://eslint.org/)
 - [pnpm](https://pnpm.io/)
 
-**Hosting provider:** Nu avem încă dar cred că vom folosi [Vercel](https://vercel.com/)
+**Hosting provider:** Nu avem încă dar cred că vom folosi [Vercel](https://vercel.com/) sau [Render](https://render.com/)
 
 ## Comenzi
 

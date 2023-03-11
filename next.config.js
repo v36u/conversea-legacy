@@ -23,4 +23,12 @@ module.exports = getConfig({
   trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
+  /**
+   * Dynamic configuration available for the browser and server.
+   * Note: requires `ssr: true` or a `getInitialProps` in `_app.tsx`
+   * @link https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
+   */
+  publicRuntimeConfig: {
+    NODE_ENV: process.env.NODE_ENV,
+  },
 });

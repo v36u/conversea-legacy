@@ -3,10 +3,10 @@ lockfileVersion: 5.4
 specifiers:
   '@prisma/client': ^4.11.0
   '@tanstack/react-query': ^4.24.10
-  '@trpc/client': ^10.13.2
-  '@trpc/next': ^10.13.2
-  '@trpc/react-query': ^10.13.2
-  '@trpc/server': ^10.13.2
+  '@trpc/client': ^10.15.0
+  '@trpc/next': ^10.15.0
+  '@trpc/react-query': ^10.15.0
+  '@trpc/server': ^10.15.0
   '@types/next': ^9.0.0
   '@types/node': ^18.7.20
   '@types/react': ^18.0.9
@@ -38,10 +38,10 @@ specifiers:
 dependencies:
   '@prisma/client': 4.11.0_prisma@4.11.0
   '@tanstack/react-query': 4.24.10_biqbaboplfbrettd7655fr4n2y
-  '@trpc/client': 10.13.2_@trpc+server@10.13.2
-  '@trpc/next': 10.13.2_on4hsjlpaeklsiwsrnt5ejxhsq
-  '@trpc/react-query': 10.13.2_4d7irbdidsmzpcceffzhg76qwi
-  '@trpc/server': 10.13.2
+  '@trpc/client': 10.15.0_@trpc+server@10.15.0
+  '@trpc/next': 10.15.0_acpdj4bx3dkmmxpafnx2uxesjm
+  '@trpc/react-query': 10.15.0_vwtxonyfl37kkvgmkrcixfq7we
+  '@trpc/server': 10.15.0
   clsx: 1.2.1
   next: 13.2.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -536,53 +536,53 @@ packages:
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
-  /@trpc/client/10.13.2_@trpc+server@10.13.2:
-    resolution: {integrity: sha512-iEZOAYS/Ak5T6j2lrN2NCYYLb8YY9sbj4JJR9VgxDL8Cz1dRFpFZ2BA4VwNW6xoh0G+MRdSGvivTYdggbJ4BBg==}
+  /@trpc/client/10.15.0_@trpc+server@10.15.0:
+    resolution: {integrity: sha512-Tmm3N7jibEOZTsvHRU+tWCVvUf8F9/UcKOVTGAWuyasBpnjOZ7ClZ81F9wo4cg9+9tUxUhuJns+E96/HtATpyQ==}
     peerDependencies:
-      '@trpc/server': 10.13.2
+      '@trpc/server': 10.15.0
     dependencies:
-      '@trpc/server': 10.13.2
+      '@trpc/server': 10.15.0
     dev: false
 
-  /@trpc/next/10.13.2_on4hsjlpaeklsiwsrnt5ejxhsq:
-    resolution: {integrity: sha512-0GV9JanTY6PqWVd4W/OWIy8SI4qQD0F2ak4OgxLLothqB+ARzHpYkoZO+E3Y13/O+NV5RhWF6sIXXXX6doNghQ==}
+  /@trpc/next/10.15.0_acpdj4bx3dkmmxpafnx2uxesjm:
+    resolution: {integrity: sha512-jekFhfvqvw5+KP+ya3zK0nXlNtOTBjlhAynlIJqTOoTM08rx1s24x3S35seaxKmxVSdREClmpNgoZmaHWH6rlw==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
-      '@trpc/client': 10.13.2
-      '@trpc/react-query': 10.13.2
-      '@trpc/server': 10.13.2
-      next: ^13.0.0
+      '@trpc/client': 10.15.0
+      '@trpc/react-query': 10.15.0
+      '@trpc/server': 10.15.0
+      next: '*'
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@tanstack/react-query': 4.24.10_biqbaboplfbrettd7655fr4n2y
-      '@trpc/client': 10.13.2_@trpc+server@10.13.2
-      '@trpc/react-query': 10.13.2_4d7irbdidsmzpcceffzhg76qwi
-      '@trpc/server': 10.13.2
+      '@trpc/client': 10.15.0_@trpc+server@10.15.0
+      '@trpc/react-query': 10.15.0_vwtxonyfl37kkvgmkrcixfq7we
+      '@trpc/server': 10.15.0
       next: 13.2.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
-  /@trpc/react-query/10.13.2_4d7irbdidsmzpcceffzhg76qwi:
-    resolution: {integrity: sha512-wLNDZKe5yQ2AYs/uoymxyRn5jNdYNpbOX17tHirnDDPKDRJojooGuL6uIDS1kvm70QJiNR/UKjKfwLDgZdGcqw==}
+  /@trpc/react-query/10.15.0_vwtxonyfl37kkvgmkrcixfq7we:
+    resolution: {integrity: sha512-MD8JBoviAioI3ssOzN+Uxd8uGvhgfqvtbmkdhYQkQJOBlQw+4A55BfeXykeRmIHOs6X83iiqZVVerximEzTADQ==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
-      '@trpc/client': 10.13.2
-      '@trpc/server': 10.13.2
+      '@trpc/client': 10.15.0
+      '@trpc/server': 10.15.0
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@tanstack/react-query': 4.24.10_biqbaboplfbrettd7655fr4n2y
-      '@trpc/client': 10.13.2_@trpc+server@10.13.2
-      '@trpc/server': 10.13.2
+      '@trpc/client': 10.15.0_@trpc+server@10.15.0
+      '@trpc/server': 10.15.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@trpc/server/10.13.2:
-    resolution: {integrity: sha512-/5L09a7EHxRy1D6RIFsIt5fMJ8bBspMp/eDPjAH7T033f9AMyYx0jWU7r5lswoBVSbdUDJgxKyLzwXIrVNVisg==}
+  /@trpc/server/10.15.0:
+    resolution: {integrity: sha512-Kf+wTU5iZjjjEzqZDy+o5wc4nEZKvE0yWdF9qZa72xLu6eTJ0BS2hnwQZeCZ2pIbmQb8/6lFr5igHiY4/dy0mA==}
     dev: false
 
   /@types/json-schema/7.0.11:
