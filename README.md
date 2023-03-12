@@ -1,4 +1,4 @@
-# Conversea
+# Conversea 🌊
 
 ## Tech stack
 

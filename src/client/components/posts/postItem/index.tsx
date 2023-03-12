@@ -1,15 +1,19 @@
 import { Container, Text, Title } from '@mantine/core';
-import { Prism } from '@mantine/prism';
+import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { RouterOutput } from '~/utils/trpc';
+import { Post } from '~/utils/types/Post';
 
 type Props = {
-  post: RouterOutput['posts']['byId'];
+  post: Post;
 };
+
+const DynamicPostItemRawData = dynamic(() => import('./postItemRawData'), {
+  ssr: false,
+});
 
 const PostItem: FC<Props> = ({ post }) => {
   return (
-    <Container>
+    <Container mt="xl">
       <Title mb="sm" order={1}>
         {post.title}
       </Title>
@@ -19,7 +23,7 @@ const PostItem: FC<Props> = ({ post }) => {
       <Title mt="md" mb="sm" order={2}>
         Raw data:
       </Title>
-      <Prism language="json">{JSON.stringify(post, null, 2)}</Prism>
+      <DynamicPostItemRawData post={post} />
     </Container>
   );
 };
