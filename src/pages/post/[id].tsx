@@ -1,25 +1,9 @@
 import NextError from 'next/error';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
+import PostItem from '~/client/components/posts/postItem';
 import HttpStatusCode from '~/utils/enums/HttpStatusCode';
-import { RouterOutput, trpc } from '~/utils/trpc';
-
-type PostByIdOutput = RouterOutput['posts']['byId'];
-
-function PostItem(props: { post: PostByIdOutput }) {
-  const { post } = props;
-  return (
-    <>
-      <h1>{post.title}</h1>
-      <em>Created {post.createdAt.toLocaleDateString('en-us')}</em>
-
-      <p>{post.text}</p>
-
-      <h2>Raw data:</h2>
-      <pre>{JSON.stringify(post, null, 4)}</pre>
-    </>
-  );
-}
+import { trpc } from '~/utils/trpc';
 
 const PostViewPage: FC = () => {
   const id = useRouter().query.id as string;
@@ -40,6 +24,7 @@ const PostViewPage: FC = () => {
   if (postQuery.status !== 'success') {
     return <>Loading...</>;
   }
+
   const { data } = postQuery;
   return <PostItem post={data} />;
 };

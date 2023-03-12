@@ -1,3 +1,12 @@
+import {
+  Button,
+  Container,
+  Divider,
+  Text,
+  Textarea,
+  TextInput,
+  Title,
+} from '@mantine/core';
 import { inferProcedureInput } from '@trpc/server';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
@@ -26,24 +35,25 @@ const IndexPage: FC = () => {
   });
 
   return (
-    <>
-      <h1>Welcome to Conversea!</h1>
-      <p>
-        If you get stuck, check <a href="https://trpc.io">the docs</a>, write a
-        message in our <a href="https://trpc.io/discord">Discord-channel</a>, or
-        write a message in{' '}
-        <a href="https://github.com/trpc/trpc/discussions">
-          GitHub Discussions
-        </a>
-        .
-      </p>
+    <Container mt="xl">
+      <Title order={1} mb="sm">
+        Welcome to Conversea!
+      </Title>
+      <Text>
+        Enim sint dolore ullamco ullamco aute. Nostrud consequat officia tempor
+        magna. Culpa consequat cillum adipisicing ad minim tempor do id
+        consectetur excepteur eiusmod irure. Culpa nulla consectetur mollit duis
+        sunt ipsum et nostrud et reprehenderit voluptate veniam in. Amet culpa
+        Lorem adipisicing duis dolor sint ad sunt culpa officia irure proident.
+        Quis do nulla mollit sunt deserunt dolor incididunt pariatur aute
+        excepteur id. Ipsum aute nostrud laboris do.
+      </Text>
 
-      <h2>
+      <Title order={2} mt="md" mb="sm">
         Latest Posts
         {postsQuery.status === 'loading' && '(loading)'}
-      </h2>
-
-      <button
+      </Title>
+      <Button
         onClick={() => postsQuery.fetchPreviousPage()}
         disabled={
           !postsQuery.hasPreviousPage || postsQuery.isFetchingPreviousPage
@@ -54,23 +64,28 @@ const IndexPage: FC = () => {
           : postsQuery.hasPreviousPage
           ? 'Load More'
           : 'Nothing more to load'}
-      </button>
+      </Button>
 
       {postsQuery.data?.pages.map((page, index) => (
         <Fragment key={page.items[0]?.id || index}>
           {page.items.map((item) => (
             <article key={item.id}>
-              <h3>{item.title}</h3>
-              <Link href={`/post/${item.id}`}>View more</Link>
+              <Title order={3} mt="sm" mb="xs">
+                {item.title}
+              </Title>
+              <Link href={`/post/${item.id}`}>
+                <Button color="white">View more</Button>
+              </Link>
             </article>
           ))}
         </Fragment>
       ))}
 
-      <hr />
+      <Divider my="md" />
 
-      <h3>Add a Post</h3>
-
+      <Title order={3} mb="sm">
+        Add a Post
+      </Title>
       <form
         onSubmit={async (e) => {
           /**
@@ -96,26 +111,29 @@ const IndexPage: FC = () => {
           }
         }}
       >
-        <label htmlFor="title">Title:</label>
         <br />
-        <input
+        <TextInput
+          label="Title:"
           id="title"
           name="title"
           type="text"
           disabled={addPost.isLoading}
+          mt="sm"
         />
 
-        <br />
-        <label htmlFor="text">Text:</label>
-        <br />
-        <textarea id="text" name="text" disabled={addPost.isLoading} />
-        <br />
-        <input type="submit" disabled={addPost.isLoading} />
-        {addPost.error && (
-          <p style={{ color: 'red' }}>{addPost.error.message}</p>
-        )}
+        <Textarea
+          label="Text:"
+          id="text"
+          name="text"
+          disabled={addPost.isLoading}
+          mt="sm"
+        />
+        <Button type="submit" disabled={addPost.isLoading} mt="md" mb="sm">
+          Submit
+        </Button>
+        {addPost.error && <Text color="red">{addPost.error.message}</Text>}
       </form>
-    </>
+    </Container>
   );
 };
 

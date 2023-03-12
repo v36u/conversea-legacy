@@ -16,6 +16,10 @@ module.exports = getConfig({
   experimental: {
     appDir: true,
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
   trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
