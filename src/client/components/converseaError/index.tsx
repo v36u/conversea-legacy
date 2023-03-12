@@ -7,7 +7,7 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { FC } from 'react';
+import { FC, MouseEventHandler } from 'react';
 import HttpStatusCode from '~/utils/enums/HttpStatusCode';
 
 const useStyles = createStyles((theme) => ({
@@ -53,27 +53,36 @@ const useStyles = createStyles((theme) => ({
 
 type Props = {
   errorCode: HttpStatusCode;
+  title: string;
+  message: string;
+  buttonText: string;
+  buttonOnClick: MouseEventHandler<HTMLButtonElement>;
 };
 
-const ConverseaError: FC<Props> = ({ errorCode }) => {
+const ConverseaError: FC<Props> = ({
+  errorCode,
+  title,
+  message,
+  buttonText,
+  buttonOnClick,
+}) => {
   const { classes } = useStyles();
 
   return (
     <Container className={classes.root}>
-      <div className={classes.label}>404</div>
-      <Title className={classes.title}>You have found a secret place.</Title>
+      <div className={classes.label}>{errorCode}</div>
+      <Title className={classes.title}>{title}</Title>
       <Text
         color="dimmed"
         size="lg"
         align="center"
         className={classes.description}
       >
-        Unfortunately, this is only a 404 page. You may have mistyped the
-        address, or the page has been moved to another URL.
+        {message}
       </Text>
       <Group position="center">
-        <Button variant="subtle" size="md">
-          Take me back to home page
+        <Button onClick={buttonOnClick} variant="subtle" size="md">
+          {buttonText}
         </Button>
       </Group>
     </Container>

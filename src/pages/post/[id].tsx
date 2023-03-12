@@ -1,6 +1,7 @@
 import NextError from 'next/error';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
+import HttpStatusCode from '~/utils/enums/HttpStatusCode';
 import { RouterOutput, trpc } from '~/utils/trpc';
 
 type PostByIdOutput = RouterOutput['posts']['byId'];
@@ -28,7 +29,10 @@ const PostViewPage: FC = () => {
     return (
       <NextError
         title={postQuery.error.message}
-        statusCode={postQuery.error.data?.httpStatus ?? 500}
+        statusCode={
+          postQuery.error.data?.httpStatus ??
+          HttpStatusCode.INTERNAL_SERVER_ERROR
+        }
       />
     );
   }
