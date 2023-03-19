@@ -1,5 +1,20 @@
 # Conversea 🌊
 
+## Instalare
+
+0. Actualizare NodeJS (minim versiunea 18)
+1. Clonare repo
+2. Rulare comandă `pnpm install` în terminal (din root-ul proiectului)
+3. Instalare [PostgreSQL](https://www.postgresql.org/)
+4. Adăugare date de autentificare pentru PostgreSQL într-un fișier `.env.local` sau `.env.development.local` + `.env.production.local` (vezi mai multe [aici](#fișierele-env))
+   - Exemplu:
+   ```
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=12345
+   ```
+5. După rularea comenzii `pnpm dev`, ar trebui să pornează aplicația pe `http://localhost:3000/` și Prisma Studio pe `http://localhost:5555/`
+   - Dacă apar erori, ping me
+
 ## Tech stack
 
 **Bază:** JavaScript + [Typescript](https://www.typescriptlang.org/)
@@ -12,7 +27,7 @@
 
 **Bază de date:** [PostgreSQL](https://www.postgresql.org/)
 
-**Testing:** Inițial foloseam [playwright](https://playwright.dev/) + [vitest](https://vitest.dev/) dar am întâmpinat niște probleme și le-am scos momenta -- eventual le vom readăuga pe parcurs
+**Testing:** Inițial foloseam [playwright](https://playwright.dev/) + [vitest](https://vitest.dev/) dar am întâmpinat niște probleme și le-am scos momentan -- eventual le vom readăuga pe parcurs
 
 **Tehnologii complementare:**
 
