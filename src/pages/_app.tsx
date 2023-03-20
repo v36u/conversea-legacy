@@ -13,7 +13,6 @@ interface CustomAppProps extends AppProps {
 
 const App = (({ pageProps, Component }: CustomAppProps) => {
   const { session } = pageProps;
-
   return (
     <>
       <Head>
