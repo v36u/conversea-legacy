@@ -1,4 +1,13 @@
-import { Anchor, Button, Container, Loader, Stack, Title } from '@mantine/core';
+import {
+  Anchor,
+  BackgroundImage,
+  Box,
+  Button,
+  Container,
+  Loader,
+  Stack,
+  Title,
+} from '@mantine/core';
 import { GetServerSideProps } from 'next';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -6,7 +15,7 @@ import { FC } from 'react';
 
 const IndexPage: FC = () => {
   const { status } = useSession();
-  
+
   return (
     <Container mt="xl" fluid>
       {status === 'loading' && <Loader variant="bars" color="cyan" />}
@@ -28,25 +37,45 @@ const IndexPage: FC = () => {
       {status === 'authenticated' && (
         <Button onClick={async () => await signOut()}>Deautentificare</Button>
       )}
-      
+
       <Title order={1} align="center">
         Conversea
       </Title>
-      <Stack
+
+      <Title mt={50} order={3} align="center">
+        Insert pompous motto
+      </Title>
+
+      <Box
         mx="auto"
-        mt="xl"
-        align="center"
-        h={300}
-        w={300}
-        spacing="xl"
-        justify="center"
+        mt={50}
+        p="md"
+        h={400}
+        w={400}
         sx={(theme) => ({
-          backgroundColor: theme.colors.gray[0],
+          backgroundColor: theme.colors.indigo[0],
+          textAlign: 'center',
+          padding: theme.spacing.xl,
+          borderRadius: theme.radius.md,
         })}
       >
-        <Button variant="outline">Inregistrare</Button>
-        <Button variant="outline">Logare</Button>
-      </Stack>
+        <BackgroundImage src="/assets/logoConversea.png">
+          <Stack mx="auto" align="center" h={400} spacing="xl" justify="center">
+            <Button
+              variant="gradient"
+              gradient={{ from: '#ed6ea0', to: '#ec8c69', deg: 35 }}
+            >
+              Inregistrare
+            </Button>
+            <Button
+              variant="gradient"
+              gradient={{ from: 'indigo', to: 'cyan' }}
+            >
+              Logare
+            </Button>
+          </Stack>
+        </BackgroundImage>
+      </Box>
     </Container>
   );
 };

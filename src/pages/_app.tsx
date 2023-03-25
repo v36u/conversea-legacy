@@ -26,6 +26,11 @@ const App = (({ pageProps, Component }: CustomAppProps) => {
           withNormalizeCSS
           theme={{
             colorScheme: 'light',
+            globalStyles: (theme) => ({
+              body: {
+                backgroundColor: theme.colors.indigo[1],
+              },
+            }),
           }}
         >
           <main>
