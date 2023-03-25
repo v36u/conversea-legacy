@@ -13,9 +13,6 @@ function getConfig(config) {
  * @link https://nextjs.org/docs/api-reference/next.config.js/introduction
  */
 module.exports = getConfig({
-  experimental: {
-    appDir: true,
-  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
