@@ -1,9 +1,19 @@
 import { MantineProvider } from '@mantine/core';
+import type { Session } from 'next-auth';
 import type { AppProps, AppType } from 'next/app';
 import Head from 'next/head';
 import { trpc } from '~/utils/trpc';
 
-const App = (({ pageProps, Component }: AppProps) => {
+import { SessionProvider } from 'next-auth/react';
+interface CustomAppProps extends AppProps {
+  pageProps: {
+    session?: Session;
+  } & AppProps['pageProps'];
+}
+
+const App = (({ pageProps, Component }: CustomAppProps) => {
+  const { session } = pageProps;
+
   return (
     <>
       <Head>
@@ -11,18 +21,19 @@ const App = (({ pageProps, Component }: AppProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: 'light',
-        }}
-      >
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </MantineProvider>
+      <SessionProvider session={session}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            colorScheme: 'light',
+          }}
+        >
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </MantineProvider>
+      </SessionProvider>
     </>
   );
 }) as AppType;
