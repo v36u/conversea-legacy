@@ -44,6 +44,7 @@
     "@trpc/next": "^10.15.0",
     "@trpc/react-query": "^10.15.0",
     "@trpc/server": "^10.15.0",
+    "argon2": "^0.30.3",
     "clsx": "^1.1.1",
     "next": "^13.2.1",
     "next-auth": "^4.20.1",
