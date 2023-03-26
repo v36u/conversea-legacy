@@ -33,6 +33,8 @@
 
 **Bază de date:** [PostgreSQL](https://www.postgresql.org/)
 
+**Autentificare:** [NextAuth.js](https://next-auth.js.org/) (Folosind JWT)
+
 **Testing:** Inițial foloseam [playwright](https://playwright.dev/) + [vitest](https://vitest.dev/) dar am întâmpinat niște probleme și le-am scos momentan -- eventual le vom readăuga pe parcurs
 
 **Tehnologii complementare:**

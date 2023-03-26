@@ -11,6 +11,7 @@ const IndexPage: FC = () => {
           Autentifică-te
         </Anchor>
       </Link>
+      <br />
       <Link href="/auth/register/">
         <Anchor size="sm" component="button">
           Înregistrează-te

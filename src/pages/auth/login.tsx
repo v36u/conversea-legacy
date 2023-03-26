@@ -35,24 +35,26 @@ const LoginPage: FC = () => {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email" placeholder="exemplu@webiste.ro" required />
-        <PasswordInput
-          label="Parolă"
-          placeholder="Parola ta"
-          required
-          mt="md"
-        />
-        <Group position="apart" mt="lg">
-          <Checkbox label="Ține-mă minte" />
-          <Link href="/auth/forgot-password/">
-            <Anchor component="button" size="sm">
-              Ai uitat parola?
-            </Anchor>
-          </Link>
-        </Group>
-        <Button type="submit" fullWidth mt="xl">
-          Autentificare
-        </Button>
+        <form noValidate>
+          <TextInput label="Email" placeholder="exemplu@website.ro" required />
+          <PasswordInput
+            label="Parolă"
+            placeholder="Parola ta"
+            required
+            mt="md"
+          />
+          <Group position="apart" mt="lg">
+            <Checkbox label="Ține-mă minte" />
+            <Link href="/auth/forgot-password/">
+              <Anchor component="button" size="sm">
+                Ai uitat parola?
+              </Anchor>
+            </Link>
+          </Group>
+          <Button type="submit" fullWidth mt="xl">
+            Autentificare
+          </Button>
+        </form>
       </Paper>
     </Container>
   );

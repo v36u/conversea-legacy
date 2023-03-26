@@ -8,7 +8,7 @@ import { prisma } from './prisma';
 /*       See https://trpc.io/docs/server/context#inner-and-outer-context      */
 /* -------------------------------------------------------------------------- */
 
-interface CreateInnerContextOptions extends Partial<CreateNextContextOptions> {
+interface CreateContextOptions extends Partial<CreateNextContextOptions> {
   session: Session | null;
 }
 
@@ -17,9 +17,7 @@ interface CreateInnerContextOptions extends Partial<CreateNextContextOptions> {
  * You can use this function for integration testing or SSG helpers, where you don’t have a request object.
  * Whatever is defined here will always be available in your procedures.
  */
-export const createContextInner = async ({
-  session,
-}: CreateInnerContextOptions) => {
+export const createContextInner = async ({ session }: CreateContextOptions) => {
   return {
     prisma,
     session,

@@ -48,19 +48,26 @@ const ForgotPasswordPage: FC = () => {
       </Text>
 
       <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
-        <TextInput label="Email" placeholder="exemplu@webiste.ro" required />
-        <Group position="apart" mt="lg" className={classes.controls}>
-          <Anchor color="dimmed" size="sm" className={classes.control}>
-            <Center inline>
-              <Link href="/auth/login/">
-                <Anchor component="button" size="sm">
-                  Înapoi la pagina de autentificare
-                </Anchor>
-              </Link>
-            </Center>
-          </Anchor>
-          <Button className={classes.control}>Resetare parolă</Button>
-        </Group>
+        <form noValidate>
+          <TextInput
+            formNoValidate
+            label="Email"
+            placeholder="exemplu@webiste.ro"
+            required
+          />
+          <Group position="apart" mt="lg" className={classes.controls}>
+            <Anchor color="dimmed" size="sm" className={classes.control}>
+              <Center inline>
+                <Link href="/auth/login/">
+                  <Anchor component="button" size="sm">
+                    Înapoi la pagina de autentificare
+                  </Anchor>
+                </Link>
+              </Center>
+            </Anchor>
+            <Button className={classes.control}>Resetare parolă</Button>
+          </Group>
+        </form>
       </Paper>
     </Container>
   );
