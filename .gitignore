@@ -33,9 +33,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# db
 *.db
 *.db-journal
 
 
 # testing
 playwright/test-results
+
+# dev
+.eslintcache

@@ -26,6 +26,7 @@ export const userRegister = publicProcedure
       data: {
         email,
         password: hashedPassword,
+        username: email,
       },
     });
 
