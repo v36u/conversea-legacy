@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@emotion/react': ^11.10.6
   '@emotion/server': ^11.10.0
+  '@hookform/resolvers': ^3.0.0
   '@mantine/core': ^6.0.1
   '@mantine/form': ^6.0.1
   '@mantine/hooks': ^6.0.1
@@ -47,6 +48,7 @@ specifiers:
 dependencies:
   '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
   '@emotion/server': 11.10.0
+  '@hookform/resolvers': 3.0.0_react-hook-form@7.43.8
   '@mantine/core': 6.0.1_7atxah5aiy65tdrz25o24k4n44
   '@mantine/form': 6.0.1_react@18.2.0
   '@mantine/hooks': 6.0.1_react@18.2.0
@@ -511,6 +513,14 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tabbable: 6.1.1
+    dev: false
+
+  /@hookform/resolvers/3.0.0_react-hook-form@7.43.8:
+    resolution: {integrity: sha512-SQPefakODpyq25b/phHXDKCdRrEfPcCXV7B4nAa139wE1DxufYbbNAjeo0T04ZXBokRxZ+wD8iA1kkVMa3QwjQ==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.43.8_react@18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
