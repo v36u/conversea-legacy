@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Anchor,
   Button,
@@ -10,10 +11,28 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import {
+  CredentialsAuthFields,
+  credentialsAuthSchema,
+} from '~/utils/validation/auth';
 
 const LoginPage: FC = () => {
+  const { control, handleSubmit, formState } = useForm<CredentialsAuthFields>({
+    resolver: zodResolver(credentialsAuthSchema),
+    reValidateMode: 'onChange',
+  });
+
+  const onSubmit = useCallback(async (data: CredentialsAuthFields) => {
+    await signIn('credentials', {
+      ...data,
+      callbackUrl: '/',
+    });
+  }, []);
+
   return (
     <Container size={480} my={40}>
       <Title
@@ -35,13 +54,35 @@ const LoginPage: FC = () => {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form noValidate>
-          <TextInput label="Email" placeholder="exemplu@website.ro" required />
-          <PasswordInput
-            label="Parolă"
-            placeholder="Parola ta"
-            required
-            mt="md"
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <Controller
+            name="emailOrUsername"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <TextInput
+                {...field}
+                label="Email sau nume de utilizator"
+                placeholder="exemplu@website.ro"
+                required
+                error={formState.errors.emailOrUsername?.message}
+              />
+            )}
+          />
+          <Controller
+            name="password"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <PasswordInput
+                {...field}
+                label="Parolă"
+                placeholder="Parola ta"
+                required
+                mt="md"
+                error={formState.errors.password?.message}
+              />
+            )}
           />
           <Group position="apart" mt="lg">
             <Checkbox label="Ține-mă minte" />

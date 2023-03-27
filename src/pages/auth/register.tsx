@@ -34,7 +34,7 @@ const RegisterPage: FC = () => {
     async (data: RegistrationFields) => {
       const result = await registerAsync(data);
       if (result.status === HttpStatusCode.CREATED) {
-        push('/');
+        push('/auth/login/');
       }
     },
     [push, registerAsync],

@@ -61,17 +61,17 @@ export type RegistrationFields = z.infer<typeof registrationSchema>;
 
 /* -------------------------------------------------------------------------- */
 
-export const userInfoSchema = z.object({
-  username: usernameValidation,
-});
-
-export type UserInfoFields = z.infer<typeof userInfoSchema>;
-
-/* -------------------------------------------------------------------------- */
-
 export const credentialsAuthSchema = z.object({
   emailOrUsername: emailValidation.or(usernameValidation),
   password: passwordValidation,
 });
 
 export type CredentialsAuthFields = z.infer<typeof credentialsAuthSchema>;
+
+/* -------------------------------------------------------------------------- */
+
+export const userInfoSchema = z.object({
+  username: usernameValidation,
+});
+
+export type UserInfoFields = z.infer<typeof userInfoSchema>;
