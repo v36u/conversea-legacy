@@ -9,10 +9,13 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { GetServerSideProps } from 'next';
+import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { nextAuthOptions } from '~/utils/auth/authOptions';
 import HttpStatusCode from '~/utils/enums/HttpStatusCode';
 import { trpc } from '~/utils/trpc';
 import {
@@ -113,6 +116,22 @@ const RegisterPage: FC = () => {
       </Paper>
     </Container>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = await getServerSession(req, res, nextAuthOptions);
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        statusCode: HttpStatusCode.TEMPORARY_REDIRECT,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default RegisterPage;

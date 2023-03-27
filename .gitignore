@@ -43,3 +43,6 @@ playwright/test-results
 
 # dev
 .eslintcache
+
+# binaries
+tsconfig.tsbuildinfo

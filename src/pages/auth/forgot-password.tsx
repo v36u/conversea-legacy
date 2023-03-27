@@ -11,8 +11,12 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { GetServerSideProps } from 'next';
+import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import { FC } from 'react';
+import { nextAuthOptions } from '~/utils/auth/authOptions';
+import HttpStatusCode from '~/utils/enums/HttpStatusCode';
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -71,6 +75,22 @@ const ForgotPasswordPage: FC = () => {
       </Paper>
     </Container>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = await getServerSession(req, res, nextAuthOptions);
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        statusCode: HttpStatusCode.TEMPORARY_REDIRECT,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default ForgotPasswordPage;

@@ -11,10 +11,14 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { GetServerSideProps } from 'next';
+import { getServerSession } from 'next-auth';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { FC, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { nextAuthOptions } from '~/utils/auth/authOptions';
+import HttpStatusCode from '~/utils/enums/HttpStatusCode';
 import {
   CredentialsAuthFields,
   credentialsAuthSchema,
@@ -99,6 +103,22 @@ const LoginPage: FC = () => {
       </Paper>
     </Container>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = await getServerSession(req, res, nextAuthOptions);
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        statusCode: HttpStatusCode.TEMPORARY_REDIRECT,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default LoginPage;
