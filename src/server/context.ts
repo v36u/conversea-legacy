@@ -1,17 +1,28 @@
 import * as trpc from '@trpc/server';
+import { CreateNextContextOptions } from '@trpc/server/adapters/next';
+import { getServerSession, Session } from 'next-auth';
+import { nextAuthOptions } from '~/utils/auth/authOptions';
+import { prisma } from './prisma';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface CreateContextOptions {
-  // session: Session | null
+/* -------------------------------------------------------------------------- */
+/*       See https://trpc.io/docs/server/context#inner-and-outer-context      */
+/* -------------------------------------------------------------------------- */
+
+interface CreateContextOptions extends Partial<CreateNextContextOptions> {
+  session: Session | null;
 }
 
 /**
- * Inner function for `createContext` where we create the context.
- * This is useful for testing when we don't want to mock Next.js' request/response
+ * Inner context is where you define context which doesn’t depend on the request, e.g. your database connection.
+ * You can use this function for integration testing or SSG helpers, where you don’t have a request object.
+ * Whatever is defined here will always be available in your procedures.
  */
-export async function createContextInner(_opts: CreateContextOptions) {
-  return {};
-}
+export const createContextInner = async ({ session }: CreateContextOptions) => {
+  return {
+    prisma,
+    session,
+  };
+};
 
 export type Context = trpc.inferAsyncReturnType<typeof createContextInner>;
 
@@ -19,8 +30,14 @@ export type Context = trpc.inferAsyncReturnType<typeof createContextInner>;
  * Creates context for an incoming request
  * @link https://trpc.io/docs/context
  */
-export async function createContext(): Promise<Context> {
-  // for API-response caching see https://trpc.io/docs/caching
+export const createContext = async ({ req, res }: CreateNextContextOptions) => {
+  const session = await getServerSession(req, res, nextAuthOptions);
 
-  return await createContextInner({});
-}
+  const contextInner = await createContextInner({ session });
+
+  return {
+    ...contextInner,
+    req,
+    res,
+  };
+};
