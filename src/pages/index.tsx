@@ -13,7 +13,6 @@ import {
   Title,
 } from '@mantine/core';
 import { GetServerSideProps } from 'next';
-import { useSession } from 'next-auth/react';
 import { FC } from 'react';
 
 const useStyles = createStyles((theme) => ({
@@ -72,7 +71,6 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const IndexPage: FC = () => {
-  const { status } = useSession();
   const { classes } = useStyles();
 
   return (
