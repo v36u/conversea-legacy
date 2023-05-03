@@ -1,4 +1,7 @@
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  Badge,
   Button,
   Container,
   createStyles,
@@ -7,7 +10,6 @@ import {
   List,
   rem,
   Text,
-  ThemeIcon,
   Title,
 } from '@mantine/core';
 import { GetServerSideProps } from 'next';
@@ -79,42 +81,39 @@ const IndexPage: FC = () => {
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              Travel the world through language with{' '}
+              Călătorește în jurul lumii prin intermediul limbii cu{' '}
               <span className={classes.highlight}>Conversea</span>!
             </Title>
             <Text color="dimmed" mt="md">
-              Build fully functional accessible web applications faster than
-              ever - Mantine includes more than 120 customizable components and
-              hooks to cover you in any situation
+              Conversea este o platformă care are ca scop central popularizarea
+              și îmbunătățirea procesului de învățare a unei limbi străine.
             </Text>
 
             <List
               mt={30}
               spacing="sm"
               size="sm"
-              icon={
-                <ThemeIcon size={20} radius="xl">
-                  X
-                </ThemeIcon>
-              }
+              icon={<FontAwesomeIcon icon={faGlobe} color="#228be6" />}
             >
               <List.Item>
-                <b>TypeScript based</b> – build type safe applications, all
-                components and hooks export types
+                <b>Scenarii familiare</b> &mdash; Conversea îți oferă scenarii
+                personalizate, căt mai relevante pentru tine
               </List.Item>
               <List.Item>
-                <b>Free and open source</b> – all packages have MIT license, you
-                can use Mantine in any project
+                <b>Statistici</b> &mdash; Îți poți vizualiza oricând progresul
+                și poți primi recomandări de învățare cât mai optime
               </List.Item>
               <List.Item>
-                <b>No annoying focus ring</b> – focus ring will appear only when
-                user navigates with keyboard
+                <b>
+                  <Badge size="sm">Nou!</Badge> Modul cooperativ
+                </b>{' '}
+                &mdash; Adună-ți prietenii și completați scenarii împreună
               </List.Item>
             </List>
 
             <Group mt={30}>
               <Button radius="xl" size="md" className={classes.control}>
-                Get started
+                Încearcă un scenariu
               </Button>
               <Button
                 variant="default"
@@ -122,7 +121,7 @@ const IndexPage: FC = () => {
                 size="md"
                 className={classes.control}
               >
-                Source code
+                Află mai multe
               </Button>
             </Group>
           </div>
