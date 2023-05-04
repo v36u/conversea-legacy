@@ -153,7 +153,7 @@ const App = (({ pageProps, Component }: CustomAppProps) => {
             }),
           }}
         >
-          <Header height={64} mb={120} className={classes.header}>
+          <Header height={64} mb={60} className={classes.header}>
             <Container className={classes.inner}>
               <Burger
                 opened={opened}

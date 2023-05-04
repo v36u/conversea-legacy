@@ -8,6 +8,7 @@ import {
   Group,
   Image,
   List,
+  px,
   rem,
   Text,
   Title,
@@ -19,8 +20,6 @@ const useStyles = createStyles((theme) => ({
   inner: {
     display: 'flex',
     justifyContent: 'space-between',
-    paddingTop: `calc(${theme.spacing.xl} * 4)`,
-    paddingBottom: `calc(${theme.spacing.xl} * 4)`,
   },
 
   content: {
@@ -59,6 +58,11 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
+  highlightWrapper: {
+    marginTop: px(35),
+    textAlign: 'center',
+  },
+
   highlight: {
     position: 'relative',
     backgroundColor: theme.fn.variant({
@@ -79,8 +83,12 @@ const IndexPage: FC = () => {
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              Călătorește în jurul lumii prin intermediul limbii cu{' '}
-              <span className={classes.highlight}>Conversea</span>!
+              <Text ml="1rem">Învață.</Text>
+              <Text ml="15rem">Socializează.</Text>
+              <Text ml="3rem">Conversează.</Text>
+              <div className={classes.highlightWrapper}>
+                <span className={classes.highlight}>Conversea</span>
+              </div>
             </Title>
             <Text color="dimmed" mt="md">
               Conversea este o platformă care are ca scop central popularizarea
