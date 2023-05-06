@@ -1,5 +1,12 @@
 # Conversea 🌊
 
+## Preview
+
+![Prototip-Homepage](https://user-images.githubusercontent.com/61616221/236638832-f3856584-6cbb-49c1-a826-89b8035b2ae6.png)
+![Prototip-Register](https://user-images.githubusercontent.com/61616221/236638839-ea20ad67-0e0d-4b15-b796-46f42105bf49.png)
+![Prototip-Login](https://user-images.githubusercontent.com/61616221/236638835-fee239fc-3e4b-4bf9-bfd7-4584f71e922f.png)
+
+
 ## Instalare
 
 0.  Actualizare NodeJS (minim versiunea 18)
