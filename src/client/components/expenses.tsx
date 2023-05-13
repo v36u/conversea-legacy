@@ -84,7 +84,7 @@ const renderActiveShape = (props: Record<string, any>) => {
 export const Expenses: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const onPieEnter = useCallback(
-    (_, index: number) => {
+    (_: any, index: number) => {
       setActiveIndex(index);
     },
     [setActiveIndex],

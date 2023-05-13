@@ -12,20 +12,13 @@
 0.  Actualizare NodeJS (minim versiunea 18)
 1.  Clonare repo
 2.  Rulare comandă `pnpm install` în terminal (din root-ul proiectului)
-3.  Instalare [PostgreSQL](https://www.postgresql.org/)
-4.  Setare variabile în `.env.local` (vezi mai multe [aici](#fișierele-env))\
-    a. Date de autentificare pentru PostgreSQL: `POSTGRES_USER` și `POSTGRES_PASSWORD`
-    - Exemplu:
-        ```
-        POSTGRES_USER=postgres
-        POSTGRES_PASSWORD=12345
-        ```
-    b. Secretul pentru autentificare: `NEXTAUTH_SECRET`
+3.  Setare variabile în `.env.local` (vezi mai multe [aici](#fișierele-env))\
+    a. Secretul pentru autentificare: `NEXTAUTH_SECRET`
     - Exemplu:
         ```
         NEXTAUTH_SECRET=abc123def
         ```
-5.  După rularea comenzii `pnpm dev`, ar trebui să pornează aplicația pe `http://localhost:3000/` și Prisma Studio pe `http://localhost:5555/`
+4.  După rularea comenzii `pnpm dev`, ar trebui să pornează aplicația pe `http://localhost:3000/` și Prisma Studio pe `http://localhost:5555/`
     - Dacă apar erori, ping me
 
 ## Tech stack
@@ -38,7 +31,7 @@
 
 **Kit UI:** [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
-**Bază de date:** [PostgreSQL](https://www.postgresql.org/)
+**Bază de date:** [PlanetScale (MySQL)](https://planetscale.com/)
 
 **Autentificare:** [NextAuth.js](https://next-auth.js.org/) (Folosind JWT)
 

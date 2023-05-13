@@ -7,13 +7,12 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ data }) => {
+  const bg = { zIndex: 0, position: 'absolute', top: 0 } as any;
+
   return (
     <header id="header">
       <div className="intro">
-        <ParticlesBg
-          type="circle"
-          bg={{ zIndex: 0, position: 'absolute', top: 0 }}
-        />
+        <ParticlesBg type="circle" bg={bg} />
         <div className="overlay">
           <div className="container">
             <div className="row">

@@ -28,6 +28,7 @@
       }
     ]
   },
+  "ignorePatterns": ["public/"],
   // "overrides": [
   //   {
   //     "files": [],
