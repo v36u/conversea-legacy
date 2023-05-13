@@ -36,7 +36,7 @@
 
 **Framework:** [Next.js](https://nextjs.org/)
 
-**Kit UI:** [Mantine](https://mantine.dev/)
+**Kit UI:** [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 **Bază de date:** [PostgreSQL](https://www.postgresql.org/)
 

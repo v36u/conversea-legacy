@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { FC } from 'react';
-import ConverseaError from '~/client/components/converseaError';
+import ConverseaError from '~/client/components/convereaError';
 import HttpStatusCode from '~/utils/enums/HttpStatusCode';
 
 const Error404Page: FC = () => {

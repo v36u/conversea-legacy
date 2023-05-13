@@ -1,14 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  Anchor,
-  Button,
-  Container,
-  Paper,
-  PasswordInput,
-  Text,
-  TextInput,
-  Title,
-} from '@mantine/core';
 import { GetServerSideProps } from 'next';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
@@ -33,6 +23,7 @@ const RegisterPage: FC = () => {
 
   const { mutateAsync: registerAsync } = trpc.user.register.useMutation();
 
+  // TODO: Fix styling, because this used Mantine which has been uninstalled
   const onSubmit = useCallback(
     async (data: RegistrationFields) => {
       const result = await registerAsync(data);
@@ -44,39 +35,46 @@ const RegisterPage: FC = () => {
   );
 
   return (
-    <Container size={480} my={40}>
-      <Title
-        align="center"
-        sx={(theme) => ({
-          fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-          fontWeight: 900,
-        })}
-      >
-        Acesta este începutul călătoriei!
-      </Title>
-      <Text color="dimmed" size="sm" align="center" mt={5}>
-        Ai cont deja?{' '}
-        <Link href="/auth/login/">
-          <Anchor size="sm" component="button">
-            Autentifică-te
-          </Anchor>
-        </Link>
-      </Text>
+    <div className="row">
+      <h1>Acesta este începutul călătoriei!</h1>
+      <h1>
+        Ai cont deja? <Link href="/auth/login/">Autentifică-te</Link>
+      </h1>
+      <div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="g-3 needs-validation"
+          noValidate
+        >
+          <div className="col-md-4">
+            <label htmlFor="validationCustom01" className="form-label">
+              First name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="validationCustom01"
+              value="Mark"
+              required
+            />
+            <div className="valid-feedback">Looks good!</div>
+          </div>
 
-      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Controller
             name="email"
             defaultValue=""
             control={control}
             render={({ field }) => (
-              <TextInput
-                {...field}
-                label="Email"
-                placeholder="exemplu@website.ro"
-                required
-                error={formState.errors.email?.message}
-              />
+              <>
+                <label htmlFor="email">Email</label>
+                <input
+                  {...field}
+                  name="email"
+                  placeholder="exemplu@website.ro"
+                  required
+                />
+                <p>{formState.errors.email?.message}</p>
+              </>
             )}
           />
           <Controller
@@ -84,14 +82,17 @@ const RegisterPage: FC = () => {
             defaultValue=""
             control={control}
             render={({ field }) => (
-              <PasswordInput
-                {...field}
-                label="Parolă"
-                placeholder="Parola ta"
-                required
-                mt="md"
-                error={formState.errors.password?.message}
-              />
+              <>
+                <label htmlFor="password">Parolă</label>
+                <input
+                  {...field}
+                  type="password"
+                  name="password"
+                  placeholder="Parola ta"
+                  required
+                />
+                <p>{formState.errors.password?.message}</p>
+              </>
             )}
           />
           <Controller
@@ -99,27 +100,29 @@ const RegisterPage: FC = () => {
             defaultValue=""
             control={control}
             render={({ field }) => (
-              <PasswordInput
-                {...field}
-                label="Confirmă parola"
-                placeholder="Introdu aceeași parolă ca mai sus"
-                required
-                mt="md"
-                error={formState.errors.confirmPassword?.message}
-              />
+              <>
+                <label htmlFor="confirm-password">Parolă</label>
+                <input
+                  {...field}
+                  type="password"
+                  name="confirm-password"
+                  placeholder="Introdu aceeași parolă ca mai sus"
+                  required
+                />
+                <p>{formState.errors.confirmPassword?.message}</p>
+              </>
             )}
           />
-          <Button type="submit" fullWidth mt="xl">
-            Înregistrare
-          </Button>
+          <button type="submit">Înregistrare</button>
         </form>
-      </Paper>
-    </Container>
+      </div>
+    </div>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getServerSession(req, res, nextAuthOptions);
+
   if (session) {
     return {
       redirect: {

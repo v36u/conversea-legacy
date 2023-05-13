@@ -1,0 +1,97 @@
+{
+  "Header": {
+    "title": "Învață. Conversează. Socializează.",
+    "paragraph": "Învață. Conversează. Socializează."
+  },
+  "About": {
+    "paragraph": "Suntem Conversea, o platformă online dedicată îmbunătățirii procesului de învățare a unei limbi străine cu ajutorul tehnologiei de ultimă generație. Misiunea noastră este de a face învățarea unei limbi străine mai accesibilă și mai eficientă pentru toți cei interesați, prin intermediul unei platforme intuitive și ușor de utilizat.",
+    "Why": [
+      "Personalizare",
+      "Utilizare ușoară",
+      "Inteligența Artificială",
+      "Instrumente diverse de învățare"
+    ],
+    "Why2": [
+      "Învățare distractivă",
+      "Experți în domeniu",
+      "Feedback și sugestii",
+      "Flexibilitate"
+    ]
+  },
+  "Services": [
+    {
+      "icon": "fa fa-flask",
+      "name": "Scenarii simulate",
+      "text": "Platforma oferă oportunități de a exersa abilitățile de comunicare prin intermediul dialogurilor simulate cu inteligența artificială. "
+    },
+    {
+      "icon": "fa fa-random",
+      "name": "Ajustare dinamică",
+      "text": "Aplicația noastră va oferi scenarii dinamice generate de AI care se vor mula pe nevoile și competentele utilizatorului."
+    },
+    {
+      "icon": "fa fa-bar-chart",
+      "name": "Evaluări și monitorizare",
+      "text": "Conversea urmărește progresul utilizatorilor și oferă evaluări periodice pentru a măsura performanța și a identifica zonele de îmbunătățire."
+    },
+    {
+      "icon": "fa fa-suitcase",
+      "name": "Pachetul Enterprise",
+      "text": "Va oferi companiilor partenere un set de scenarii specializate în domeniul lor de activitate, asigurând o învățare cât mai rapidă și eficientă pentru mediul de lucru."
+    },
+    {
+      "icon": "fa fa-users",
+      "name": "Mod Cooperativ",
+      "text": "Aplicația va dispune de un mod cooperativ unde utilizatorul este pus în contact cu o persoană fluentă în altă limbă și de modul solo unde persoana fluentă este înlocuită cu AI-ul."
+    },
+    {
+      "icon": "fa fa-puzzle-piece",
+      "name": "Extensii",
+      "text": "O caracteristică care permite utilizatorilor să personalizeze experiența lor de învățare a limbii străine, adăugând noi funcționalități și caracteristici în platforma noastră"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "John Doe",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Jane Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Karen Doe",
+      "job": "Project Manager"
+    }
+  ],
+  "Features": [
+    {
+      "icon": "fa fa-cogs",
+      "title": "Adaptabilitate",
+      "text": "Inteligența artificială se va mula pe nevoie utilizatorului și va regla nivelul de dificultate pe parcursul lecțiilor."
+    },
+    {
+      "icon": "fa fa-forward",
+      "title": "Dinamism",
+      "text": "AI-ul se va putea adapta situaților neașteptate, cu ajutorul algoritmilor de învatare."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Personalizare",
+      "text": "El va învăța și va respecta dorințele și obiceiurile fiecărui utilizator."
+    },
+    {
+      "icon": "fa fa-wheelchair",
+      "title": "Accesibilitate",
+      "text": "Platforma noastră țintește să fie cât mai accesibilă pentru persoanele cu dizabilități."
+    }
+  ]
+}
