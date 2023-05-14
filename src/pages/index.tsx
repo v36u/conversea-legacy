@@ -3,26 +3,16 @@
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import About from '~/client/components/about';
-import Features from '~/client/components/features';
-import Footer from '~/client/components/footer';
-import Services from '~/client/components/service';
-import Team from '~/client/components/team';
+import About from '~/client/components/home/about';
+import Features from '~/client/components/home/features';
+import Footer from '~/client/components/home/footer';
+import Services from '~/client/components/home/service';
+import Team from '~/client/components/home/team';
 import data from '~/client/data/data.json';
-
-// const DynamicExpenses = dynamic(
-//   () => {
-//     const test = import('~/client/components/expenses');
-//     return test;
-//   },
-//   {
-//     ssr: false,
-//   },
-// );
 
 const DynamicHeader = dynamic(
   () => {
-    const test = import('~/client/components/header');
+    const test = import('~/client/components/home/header');
     return test;
   },
   {
@@ -38,7 +28,6 @@ const IndexPage: FC = () => {
       <About />
       <Services />
       <Team />
-      {/* <DynamicExpenses /> */}
       <Footer />
     </div>
   );

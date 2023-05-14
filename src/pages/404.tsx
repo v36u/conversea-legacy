@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import ConverseaError from '~/client/components/convereaError';
 
 const Error404Page: FC = () => {
-  return <ConverseaError />;
+  return <>404</>;
 };
 
 export default Error404Page;

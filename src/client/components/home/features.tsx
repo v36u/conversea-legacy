@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import data from '../data/data.json';
+import data from '../../data/data.json';
 
 const Features: FC = () => {
   return (
@@ -9,15 +9,13 @@ const Features: FC = () => {
           <h2>Elemente Cheie</h2>
         </div>
         <div className="row">
-          {data
-            ? data.Features.map((d, i) => (
-                <div key={`${d.title}-${i}`} className="col-xs-6 col-md-3">
-                  <i className={d.icon}></i>
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              ))
-            : 'Loading...'}
+          {data.Features.map((d, i) => (
+            <div key={`${d.title}-${i}`} className="col-xs-6 col-md-3">
+              <i className={d.icon}></i>
+              <h3>{d.title}</h3>
+              <p>{d.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
