@@ -16,6 +16,7 @@ export const configEnv = () => {
   const envSchema = z.object({
     NODE_ENV: z.enum(['development', 'test', 'production']),
     PRISMA_DATABASE_URL: z.string().url(),
+    PRISMA_SHADOW_DATABASE_URL: z.string().url(),
   });
 
   const envSchemaValidationResult = envSchema.safeParse(process.env);
