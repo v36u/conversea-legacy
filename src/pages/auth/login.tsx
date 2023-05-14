@@ -3,8 +3,10 @@ import { GetServerSideProps } from 'next';
 import { getServerSession } from 'next-auth';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import { FC, useCallback } from 'react';
+import { useRouter } from 'next/router';
+import { FC, useCallback, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import ConverseaVideo from '~/client/components/shared/converseaVideo';
 import { nextAuthOptions } from '~/utils/auth/authOptions';
 import HttpStatusCode from '~/utils/enums/HttpStatusCode';
 import {
@@ -13,71 +15,120 @@ import {
 } from '~/utils/validation/auth';
 
 const LoginPage: FC = () => {
+  const { push } = useRouter();
   const { control, handleSubmit, formState } = useForm<CredentialsAuthFields>({
     resolver: zodResolver(credentialsAuthSchema),
     reValidateMode: 'onChange',
   });
+  const [generalError, setGeneralError] = useState('');
 
-  const onSubmit = useCallback(async (data: CredentialsAuthFields) => {
-    await signIn('credentials', {
-      ...data,
-      callbackUrl: '/',
-    });
-  }, []);
+  const onSubmit = useCallback(
+    async (data: CredentialsAuthFields) => {
+      setGeneralError('');
+      const response = await signIn('credentials', {
+        ...data,
+        redirect: false,
+      });
+      if (response?.status !== HttpStatusCode.OK) {
+        const error = response?.error ?? 'A fost întâlnită o eroare!';
 
-  // TODO: Fix styling, because this used Mantine which has been uninstalled
+        setGeneralError(error);
+        return;
+      }
+      push('/');
+    },
+    [push],
+  );
+
   return (
-    <div>
-      <h1>Bine ai revenit!</h1>
-      <p>
-        Nu ai un cont? <Link href="/auth/register/">Înregistrează-te</Link>
-      </p>
-
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
-          <Controller
-            name="emailOrUsername"
-            defaultValue=""
-            control={control}
-            render={({ field }) => (
-              <>
-                <label htmlFor="username">Email sau nume de utilizator</label>
-                <input
-                  {...field}
-                  name="username"
-                  placeholder="exemplu@website.ro"
-                  required
-                />
-                <p>{formState.errors.emailOrUsername?.message}</p>
-              </>
-            )}
-          />
-          <Controller
-            name="password"
-            defaultValue=""
-            control={control}
-            render={({ field }) => (
-              <>
-                <label htmlFor="password">Parolă</label>
-                <input
-                  {...field}
-                  type="password"
-                  placeholder="Parola ta"
-                  required
-                />
-                <p>{formState.errors.password?.message}</p>
-              </>
-            )}
-          />
-          <div>
-            <label htmlFor="remember-me">Ține-mă minte</label>
-            <input type="checkbox" name="remember-me" />
-            <link href="/auth/forgot-password/">Ai uitat parola?</link>
+    <>
+      <ConverseaVideo />
+      <div className="form-wrapper">
+        <div className="row main-content bg-success text-center">
+          <div className="col-md-4 text-center company__info">
+            <span className="company__logo">
+              <img src="/assets/converseaLogo.png" alt="logo" width="70%" />
+              <h2 className="login-slogan">
+                Învață. Conversează. Socializează.
+              </h2>
+            </span>
           </div>
-          <button type="submit">Autentificare</button>
-        </form>
+          <div className="col-md-8 col-xs-12 col-sm-12 login_form ">
+            <div className="container-fluid">
+              <div className="row">
+                <h2 className="auth-title">Bine ai revenit!</h2>
+              </div>
+              <div className="row">
+                <form
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+
+                    await handleSubmit(onSubmit)();
+                  }}
+                  noValidate
+                  className="form-group"
+                >
+                  <div className="row">
+                    <Controller
+                      name="emailOrUsername"
+                      defaultValue=""
+                      control={control}
+                      render={({ field }) => (
+                        <input
+                          {...field}
+                          type="text"
+                          name="emailOrUsername"
+                          id="emailOrUsername"
+                          className="form__input"
+                          placeholder="Email sau nume de utilizator"
+                        />
+                      )}
+                    />
+                    <span className="auth-error">
+                      {formState.errors.emailOrUsername?.message}
+                    </span>
+                  </div>
+                  <div className="row">
+                    <Controller
+                      name="password"
+                      defaultValue=""
+                      control={control}
+                      render={({ field }) => (
+                        <input
+                          {...field}
+                          type="password"
+                          name="password"
+                          id="password"
+                          className="form__input"
+                          placeholder="Parolă"
+                        />
+                      )}
+                    />
+                    <span className="auth-error">
+                      {formState.errors.password?.message}
+                    </span>
+                  </div>
+                  <div className="row">
+                    <button type="submit" className="btn">
+                      Autentificare
+                    </button>
+                  </div>
+                  <span className="general-error auth-error">
+                    {generalError}
+                  </span>
+                </form>
+              </div>
+              <div className="row auth-bottom-text">
+                <p>
+                  Nu ai un cont?{' '}
+                  <Link href="/auth/register/">Înregistrează-te</Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -50,28 +50,10 @@
       "text": "O caracteristică care permite utilizatorilor să personalizeze experiența lor de învățare a limbii străine, adăugând noi funcționalități și caracteristici în platforma noastră"
     }
   ],
-  "Team": [
-    {
-      "img": "img/team/01.jpg",
-      "name": "John Doe",
-      "job": "Director"
-    },
-    {
-      "img": "img/team/02.jpg",
-      "name": "Mike Doe",
-      "job": "Senior Designer"
-    },
-    {
-      "img": "img/team/03.jpg",
-      "name": "Jane Doe",
-      "job": "Senior Designer"
-    },
-    {
-      "img": "img/team/04.jpg",
-      "name": "Karen Doe",
-      "job": "Project Manager"
-    }
-  ],
+  "Team": {
+    "img": "/assets/team.jpeg",
+    "name": "Y3T2 - CONVERSEA"
+  },
   "Features": [
     {
       "icon": "fa fa-cogs",

@@ -1,4 +1,4 @@
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { FC, useRef } from 'react';
 
@@ -18,7 +18,7 @@ const Navigation: FC = () => {
   };
 
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+    <nav id="menu" className="navbar navbar-default navbar-fixed-top mb-0">
       <div className="container">
         <div className="navbar-header">
           <button
@@ -88,12 +88,27 @@ const Navigation: FC = () => {
             {status === 'unauthenticated' && (
               <li>
                 <Link
-                  href="/auth/register/"
+                  href="/auth/login/"
                   scroll={false}
                   onClick={handleLinkClick}
                 >
-                  Înregistrează-te
+                  <i className="fa-solid fa-right-to-bracket"></i> Autentificare
                 </Link>
+              </li>
+            )}
+            {status === 'authenticated' && (
+              <li>
+                <button
+                  type="button"
+                  onClick={() =>
+                    signOut({
+                      redirect: false,
+                    })
+                  }
+                  className="signout-button"
+                >
+                  <i className="fa-solid fa-right-from-bracket"></i> Deconectare
+                </button>
               </li>
             )}
           </ul>

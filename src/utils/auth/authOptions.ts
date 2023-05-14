@@ -42,7 +42,7 @@ export const nextAuthOptions: NextAuthOptions = {
           },
         });
         if (!dbQueryResult) {
-          return null;
+          throw new Error('Date de autentificare incorecte!');
         }
         const {
           id: userId,

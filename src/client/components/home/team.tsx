@@ -12,18 +12,15 @@ const Team: FC = () => {
             dornici de a aduce inovație în domeniul învățării limbilor străine.
           </p>
         </div>
-        <div id="row">
-          {data.Team.map((d, i) => (
-            <div key={`${d.name}-${i}`} className="col-md-3 col-sm-6 team">
-              <div className="thumbnail">
-                <img src={d.img} alt="..." className="team-img" />
-                <div className="caption">
-                  <h4>{d.name}</h4>
-                  <p>{d.job}</p>
-                </div>
+        <div id="row" className="team-image-container">
+          <div key={`${data.Team.name}`}>
+            <div className="rounded">
+              <img src={data.Team.img} alt="..." className="team-img" />
+              <div>
+                <h4 className="team-caption">{data.Team.name}</h4>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

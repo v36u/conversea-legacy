@@ -6,6 +6,7 @@ import { trpc } from '~/utils/trpc';
 import { SessionProvider } from 'next-auth/react';
 import Navigation from '~/client/components/home/navigation';
 
+import Footer from '~/client/components/home/footer';
 import '../client/styles/styles.css';
 
 interface CustomAppProps extends AppProps {
@@ -28,6 +29,7 @@ const App = (({ pageProps, Component }: CustomAppProps) => {
         <Navigation />
         <main>
           <Component {...pageProps} />
+          <Footer />
         </main>
       </SessionProvider>
     </>

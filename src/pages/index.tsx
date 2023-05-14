@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import About from '~/client/components/home/about';
 import Features from '~/client/components/home/features';
-import Footer from '~/client/components/home/footer';
 import Services from '~/client/components/home/service';
 import Team from '~/client/components/home/team';
 import data from '~/client/data/data.json';
@@ -28,7 +27,6 @@ const IndexPage: FC = () => {
       <About />
       <Services />
       <Team />
-      <Footer />
     </div>
   );
 };

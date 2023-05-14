@@ -9,10 +9,7 @@ const Document: FC = () => {
         <Script strategy="beforeInteractive" src="/js/jquery.1.11.1.js" />
         <Script strategy="beforeInteractive" src="/js/bootstrap.js" />
 
-        <link
-          href="/fonts/font-awesome/css/font-awesome.css"
-          rel="stylesheet"
-        />
+        <link href="/fonts/font-awesome/css/all.min.css" rel="stylesheet" />
         <link href="/css/nivo-lightbox/nivo-lightbox.css" rel="stylesheet" />
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
         <link
