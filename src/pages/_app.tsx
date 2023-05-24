@@ -1,12 +1,11 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { Session } from 'next-auth';
+import { SessionProvider } from 'next-auth/react';
 import type { AppProps, AppType } from 'next/app';
 import Head from 'next/head';
-import { trpc } from '~/utils/trpc';
-
-import { SessionProvider } from 'next-auth/react';
-import Navigation from '~/client/components/home/navigation';
-
 import Footer from '~/client/components/home/footer';
+import Navigation from '~/client/components/home/navigation';
+import { trpc } from '~/utils/trpc';
 import '../client/styles/styles.css';
 
 interface CustomAppProps extends AppProps {
@@ -24,6 +23,8 @@ const App = (({ pageProps, Component }: CustomAppProps) => {
         <title>Conversea</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Analytics />
 
       <SessionProvider session={session}>
         <Navigation />

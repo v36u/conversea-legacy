@@ -18,6 +18,7 @@ specifiers:
   '@types/react': ^18.0.9
   '@typescript-eslint/eslint-plugin': ^5.47.0
   '@typescript-eslint/parser': ^5.47.0
+  '@vercel/analytics': ^1.0.1
   argon2: ^0.30.3
   clsx: ^1.1.1
   cross-env: ^7.0.3
@@ -63,6 +64,7 @@ dependencies:
   '@trpc/next': 10.15.0_w64pd2b777kqv527owosjmyc6a
   '@trpc/react-query': 10.15.0_vwtxonyfl37kkvgmkrcixfq7we
   '@trpc/server': 10.15.0
+  '@vercel/analytics': 1.0.1
   argon2: 0.30.3
   clsx: 1.2.1
   emailjs-com: 3.2.0
@@ -1055,6 +1057,10 @@ packages:
       '@typescript-eslint/types': 5.52.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/1.0.1:
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
+    dev: false
 
   /abbrev/1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
